@@ -1,0 +1,1491 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Barani Rajan's Birthday 🎂</title>
+
+<style>
+
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at top left, #ff9a9e, transparent 35%),
+        radial-gradient(circle at bottom right, #a18cd1, transparent 35%),
+        linear-gradient(135deg, #ff758c, #ff7eb3, #845ec2);
+}
+
+/* =========================
+   PASSWORD SCREEN
+========================= */
+
+#loginPage {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(135deg, #ff416c, #ff4b2b, #7f53ac);
+
+    transition: 1s;
+}
+
+.login-box {
+    width: 90%;
+    max-width: 480px;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.16);
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.35);
+
+    animation: loginAppear 1.2s ease;
+}
+
+.login-box h1 {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.login-box p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.cake {
+    font-size: 80px;
+    animation: bounce 1.5s infinite;
+}
+
+.password-input {
+    width: 90%;
+    padding: 15px;
+
+    margin-top: 25px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 30px;
+
+    text-align: center;
+    font-size: 17px;
+}
+
+.open-btn {
+    margin-top: 15px;
+
+    padding: 14px 30px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: #ff1744;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.open-btn:hover {
+    transform: scale(1.08);
+    background: #d50035;
+}
+
+#error {
+    display: none;
+    margin-top: 15px;
+    color: #ffe5e5;
+}
+
+/* =========================
+   MAIN WEBSITE
+========================= */
+
+#mainPage {
+    display: none;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    padding: 15px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(0,0,0,0.25);
+
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav button {
+    padding: 9px 17px;
+
+    border: none;
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    background: white;
+    color: #ff3366;
+
+    font-weight: bold;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 100px 20px 60px;
+}
+
+.hero-card {
+    max-width: 800px;
+    width: 95%;
+
+    padding: 55px 30px;
+
+    border-radius: 35px;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+
+    animation: heroAppear 1.5s ease;
+}
+
+.hero-card .big-emoji {
+    font-size: 90px;
+
+    animation: bounce 1.5s infinite;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 8vw, 75px);
+
+    margin: 15px 0;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,0.3);
+}
+
+.hero h2 {
+    font-size: clamp(25px, 5vw, 45px);
+
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.main-btn {
+    display: inline-block;
+
+    margin: 15px 7px;
+
+    padding: 14px 25px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: white;
+    color: #ff3366;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    padding: 80px 20px;
+
+    text-align: center;
+}
+
+.section-title {
+    font-size: 42px;
+    margin-bottom: 35px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-container {
+    max-width: 900px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.time-box {
+    padding: 30px 15px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.16);
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.time-box span {
+    display: block;
+
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.time-box small {
+    font-size: 16px;
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.details-grid {
+    max-width: 900px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.detail-card {
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.4s;
+}
+
+.detail-card:hover {
+    transform: translateY(-10px);
+
+    background: rgba(255,255,255,0.23);
+}
+
+.detail-icon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.detail-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.detail-card p {
+    font-size: 18px;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message-box {
+    max-width: 800px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.16);
+
+    backdrop-filter: blur(12px);
+
+    line-height: 2;
+
+    font-size: 19px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.photo {
+    min-height: 230px;
+
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 70px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.4s;
+
+    overflow: hidden;
+}
+
+.photo:hover {
+    transform:
+        scale(1.05)
+        rotate(2deg);
+}
+
+/* =========================
+   GIFT
+========================= */
+
+.gift-container {
+    margin-top: 30px;
+}
+
+.gift {
+    font-size: 120px;
+
+    cursor: pointer;
+
+    display: inline-block;
+
+    animation: giftShake 2s infinite;
+}
+
+.gift-message {
+    display: none;
+
+    max-width: 600px;
+
+    margin: 30px auto 0;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.18);
+
+    font-size: 22px;
+
+    animation: pop 0.8s ease;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: rgba(0,0,0,0.2);
+
+    font-size: 17px;
+}
+
+footer span {
+    font-size: 25px;
+}
+
+/* =========================
+   BALLOONS
+========================= */
+
+.balloon {
+    position: fixed;
+
+    font-size: 40px;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    animation: float 6s infinite ease-in-out;
+}
+
+.b1 {
+    left: 5%;
+    top: 20%;
+}
+
+.b2 {
+    right: 5%;
+    top: 25%;
+
+    animation-delay: 1s;
+}
+
+.b3 {
+    left: 10%;
+    bottom: 15%;
+
+    animation-delay: 2s;
+}
+
+.b4 {
+    right: 10%;
+    bottom: 12%;
+
+    animation-delay: 3s;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+
+    width: 10px;
+    height: 10px;
+
+    top: -20px;
+
+    z-index: 9998;
+
+    pointer-events: none;
+
+    animation:
+        confettiFall
+        4s
+        linear
+        forwards;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes bounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-40px);
+    }
+}
+
+@keyframes loginAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heroAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes giftShake {
+
+    0%,100% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-8deg);
+    }
+
+    75% {
+        transform: rotate(8deg);
+    }
+}
+
+@keyframes pop {
+
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes confettiFall {
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px) {
+
+    nav {
+        padding: 12px 15px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .hero-card {
+        padding: 40px 20px;
+    }
+
+    .countdown-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .details-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .gallery {
+        grid-template-columns:
+            1fr;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .message-box {
+        padding: 25px;
+
+        font-size: 17px;
+    }
+
+    .photo {
+        min-height: 180px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     PASSWORD SCREEN
+===================================== -->
+
+<div id="loginPage">
+
+    <div class="login-box">
+
+        <div class="cake">
+            🎂
+        </div>
+
+        <h1>
+            You're Invited! 🎉
+        </h1>
+
+        <p>
+            A special birthday celebration
+            is waiting for you ❤️
+        </p>
+
+        <p>
+            Enter the secret password
+            to open the invitation.
+        </p>
+
+        <input
+            type="password"
+            id="password"
+            class="password-input"
+            placeholder="Enter Password"
+        >
+
+        <br>
+
+        <button
+            class="open-btn"
+            onclick="checkPassword()"
+        >
+            🔓 Open Invitation
+        </button>
+
+        <p id="error">
+            ❌ Wrong password! Try again ❤️
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================
+     MAIN WEBSITE
+===================================== -->
+
+<div id="mainPage">
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        🎂 Barani Rajan
+    </div>
+
+    <button onclick="toggleMusic()">
+        🎵 Music
+    </button>
+
+</nav>
+
+
+<!-- BALLOONS -->
+
+<div class="balloon b1">
+    🎈
+</div>
+
+<div class="balloon b2">
+    🎈
+</div>
+
+<div class="balloon b3">
+    🎈
+</div>
+
+<div class="balloon b4">
+    🎈
+</div>
+
+
+<!-- =====================================
+     HERO SECTION
+===================================== -->
+
+<section class="hero">
+
+    <div class="hero-card">
+
+        <div class="big-emoji">
+            🎉
+        </div>
+
+        <h1>
+            Birthday Lunch
+        </h1>
+
+        <h2>
+            Barani Rajan 🎂
+        </h2>
+
+        <p>
+            You're warmly invited to celebrate
+            a very special birthday!
+        </p>
+
+        <p>
+            ❤️ Let's make beautiful memories together ❤️
+        </p>
+
+        <a
+            href="#countdown"
+            class="main-btn"
+        >
+            ⏳ Countdown
+        </a>
+
+        <a
+            href="#details"
+            class="main-btn"
+        >
+            📅 Event Details
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     COUNTDOWN
+===================================== -->
+
+<section id="countdown">
+
+    <h2 class="section-title">
+        ⏳ Countdown to Birthday Lunch
+    </h2>
+
+    <p class="section-subtitle">
+        The celebration is getting closer! 🎉
+    </p>
+
+    <div class="countdown-container">
+
+        <div class="time-box">
+            <span id="days">00</span>
+            <small>Days</small>
+        </div>
+
+        <div class="time-box">
+            <span id="hours">00</span>
+            <small>Hours</small>
+        </div>
+
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <small>Minutes</small>
+        </div>
+
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <small>Seconds</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     EVENT DETAILS
+===================================== -->
+
+<section id="details">
+
+    <h2 class="section-title">
+        📅 Event Details
+    </h2>
+
+    <div class="details-grid">
+
+        <div class="detail-card">
+
+            <div class="detail-icon">
+                🎂
+            </div>
+
+            <h3>
+                Birthday
+            </h3>
+
+            <p>
+                08 April 2006
+            </p>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <div class="detail-icon">
+                📅
+            </div>
+
+            <h3>
+                Lunch Date
+            </h3>
+
+            <p>
+                22 September 2026
+            </p>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <div class="detail-icon">
+                🕐
+            </div>
+
+            <h3>
+                Time
+            </h3>
+
+            <p>
+                Coming Soon
+            </p>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <div class="detail-icon">
+                📍
+            </div>
+
+            <h3>
+                Location
+            </h3>
+
+            <p>
+                Coming Soon
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     BIRTHDAY MESSAGE
+===================================== -->
+
+<section>
+
+    <h2 class="section-title">
+        💌 Special Message
+    </h2>
+
+    <div class="message-box">
+
+        <p>
+            Today is not just another day.
+            It is a beautiful reminder of
+            a wonderful person and another
+            amazing year of life. 🎂
+        </p>
+
+        <br>
+
+        <p>
+            May this birthday bring lots of
+            happiness, success, laughter,
+            unforgettable memories and
+            beautiful moments. ❤️
+        </p>
+
+        <br>
+
+        <p>
+            Keep smiling, keep shining and
+            keep achieving your dreams! ✨
+        </p>
+
+        <br>
+
+        <strong>
+            Happy Birthday, Barani Rajan! 🎉🎂❤️
+        </strong>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     PHOTO GALLERY
+===================================== -->
+
+<section>
+
+    <h2 class="section-title">
+        📸 Birthday Memories
+    </h2>
+
+    <p class="section-subtitle">
+        Add your favourite photos here ❤️
+    </p>
+
+    <div class="gallery">
+
+        <div class="photo">
+            📷
+        </div>
+
+        <div class="photo">
+            🎂
+        </div>
+
+        <div class="photo">
+            🥳
+        </div>
+
+        <div class="photo">
+            ❤️
+        </div>
+
+        <div class="photo">
+            🎁
+        </div>
+
+        <div class="photo">
+            🎉
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     GIFT SECTION
+===================================== -->
+
+<section>
+
+    <h2 class="section-title">
+        🎁 A Special Surprise
+    </h2>
+
+    <p class="section-subtitle">
+        Click the gift box! 👇
+    </p>
+
+    <div class="gift-container">
+
+        <div
+            class="gift"
+            onclick="openGift()"
+        >
+            🎁
+        </div>
+
+        <div
+            id="giftMessage"
+            class="gift-message"
+        >
+
+            🎉 SURPRISE! 🎉
+
+            <br><br>
+
+            Your special day deserves
+            unlimited happiness,
+            laughter and wonderful memories! ❤️
+
+            <br><br>
+
+            🎂 Happy Birthday! 🎂
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     FINAL MESSAGE
+===================================== -->
+
+<section>
+
+    <div class="hero-card">
+
+        <div class="big-emoji">
+            🎂
+        </div>
+
+        <h1>
+            Let's Celebrate!
+        </h1>
+
+        <p>
+            Good food 🍕
+        </p>
+
+        <p>
+            Great friends 🥳
+        </p>
+
+        <p>
+            Beautiful memories ❤️
+        </p>
+
+        <br>
+
+        <h2>
+            Happy Birthday
+            Barani Rajan! 🎉
+        </h2>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <span>
+        🎈 🎂 🎁 🎉 ❤️
+    </span>
+
+    <br><br>
+
+    Made with ❤️ for
+    Barani Rajan's Birthday
+
+    <br>
+
+    © 2026 Birthday Celebration
+
+</footer>
+
+
+</div>
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script>
+
+
+/* =====================================
+   PASSWORD
+===================================== */
+
+function checkPassword() {
+
+    const password =
+        document.getElementById("password").value;
+
+    const loginPage =
+        document.getElementById("loginPage");
+
+    const mainPage =
+        document.getElementById("mainPage");
+
+    const error =
+        document.getElementById("error");
+
+
+    if (password === "143") {
+
+        loginPage.style.opacity = "0";
+
+        setTimeout(function() {
+
+            loginPage.style.display = "none";
+
+            mainPage.style.display = "block";
+
+            startConfetti();
+
+        }, 1000);
+
+    }
+
+    else {
+
+        error.style.display = "block";
+
+    }
+
+}
+
+
+/* ENTER KEY */
+
+document
+.getElementById("password")
+.addEventListener(
+    "keypress",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            checkPassword();
+
+        }
+
+    }
+);
+
+
+/* =====================================
+   COUNTDOWN
+===================================== */
+
+const targetDate =
+    new Date("September 22, 2026 12:00:00").getTime();
+
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+    const difference =
+        targetDate - now;
+
+
+    if (difference <= 0) {
+
+        document.getElementById("days")
+        .innerText = "00";
+
+        document.getElementById("hours")
+        .innerText = "00";
+
+        document.getElementById("minutes")
+        .innerText = "00";
+
+        document.getElementById("seconds")
+        .innerText = "00";
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (difference /
+            (1000 * 60 * 60)) % 24
+        );
+
+
+    const minutes =
+        Math.floor(
+            (difference /
+            (1000 * 60)) % 60
+        );
+
+
+    const seconds =
+        Math.floor(
+            (difference / 1000) % 60
+        );
+
+
+    document.getElementById("days")
+    .innerText =
+        String(days).padStart(2,"0");
+
+
+    document.getElementById("hours")
+    .innerText =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes")
+    .innerText =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds")
+    .innerText =
+        String(seconds).padStart(2,"0");
+
+}
+
+
+setInterval(updateCountdown, 1000);
+
+updateCountdown();
+
+
+/* =====================================
+   GIFT
+===================================== */
+
+function openGift() {
+
+    const message =
+        document.getElementById("giftMessage");
+
+    if (
+        message.style.display === "block"
+    ) {
+
+        message.style.display = "none";
+
+    }
+
+    else {
+
+        message.style.display = "block";
+
+        startConfetti();
+
+    }
+
+}
+
+
+/* =====================================
+   CONFETTI
+===================================== */
+
+function startConfetti() {
+
+    for (
+        let i = 0;
+        i < 80;
+        i++
+    ) {
+
+        const confetti =
+            document.createElement("div");
+
+
+        confetti.classList
+        .add("confetti");
+
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+
+        confetti.style.animationDelay =
+            Math.random() * 2 + "s";
+
+
+        confetti.style.transform =
+            "rotate(" +
+            Math.random() * 360 +
+            "deg)";
+
+
+        document.body.appendChild(
+            confetti
+        );
+
+
+        setTimeout(
+            function() {
+
+                confetti.remove();
+
+            },
+            6000
+        );
+
+    }
+
+}
+
+
+/* =====================================
+   MUSIC
+===================================== */
+
+let musicPlaying = false;
+
+let audio;
+
+
+/*
+   To add music:
+
+   1. Put music.mp3 inside
+      the same folder as index.html.
+
+   2. Change this line:
+
+      audio = new Audio("music.mp3");
+*/
+
+
+function toggleMusic() {
+
+    if (!audio) {
+
+        audio =
+            new Audio("music.mp3");
+
+        audio.loop = true;
+
+    }
+
+
+    if (!musicPlaying) {
+
+        audio.play();
+
+        musicPlaying = true;
+
+        alert(
+            "🎵 Birthday music started!"
+        );
+
+    }
+
+    else {
+
+        audio.pause();
+
+        musicPlaying = false;
+
+        alert(
+            "🎵 Music paused!"
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
